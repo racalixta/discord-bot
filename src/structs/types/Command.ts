@@ -14,7 +14,7 @@ export type ComponentsModal = Collection<string, (interaction: ModalSubmitIntera
 interface CommandComponents {
   buttons?: ComponentsButton,
   selects?: ComponentsSelect,
-  modal?: ComponentsModal,
+  modals?: ComponentsModal,
 }
 
 export type CommandType = ApplicationCommandData & CommandComponents & {
