@@ -12,12 +12,5 @@ export default new Command({
     ]});
 
     interaction.reply({ephemeral: true, content: "pong", components: [row]});
-  },
-  buttons: new Collection([
-    ["test-button", async (interaction) => {
-
-      interaction.update({components: []});
-
-    }]
-  ])
-})
+  }
+});
