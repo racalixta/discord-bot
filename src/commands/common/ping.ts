@@ -1,4 +1,4 @@
-import { ApplicationCommandType } from "discord.js";
+import { ActionRowBuilder, ApplicationCommandType, ButtonBuilder, ButtonStyle, Collection } from "discord.js";
 import { Command } from "../../structs/types/Command";
 
 export default new Command({
@@ -6,6 +6,18 @@ export default new Command({
   description: "reply with pong",
   type: ApplicationCommandType.ChatInput,
   run({interaction}) {
-    interaction.reply({ephemeral: true, content: "pong"});
-  }
+
+    const row = new ActionRowBuilder<ButtonBuilder>({components: [
+      new ButtonBuilder({customId: "test-button", label: "Clique Aqui", style: ButtonStyle.Success})
+    ]});
+
+    interaction.reply({ephemeral: true, content: "pong", components: [row]});
+  },
+  buttons: new Collection([
+    ["test-button", async (interaction) => {
+
+      interaction.update({components: []});
+
+    }]
+  ])
 })
